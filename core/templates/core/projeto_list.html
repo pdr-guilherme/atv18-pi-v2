@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Projetos{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-header">
+        <h2>Projetos cadastrados</h2>
+        <a href="{% url 'core:projeto_create' %}" class="btn btn-primary">+ Novo projeto</a>
+    </div>
+
+    {% if projetos %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Início</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for projeto in projetos %}
+                <tr>
+                    <td>{{ projeto.nome }}</td>
+                    <td>{{ projeto.descricao|truncatechars:80 }}</td>
+                    <td>{{ projeto.data_inicio|date:"d/m/Y" }}</td>
+                    <td class="actions">
+                        <a href="{% url 'core:projeto_update' projeto.pk %}" class="btn btn-secondary">Editar</a>
+                        <a href="{% url 'core:projeto_delete' projeto.pk %}" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="empty">Nenhum projeto cadastrado ainda.</p>
+    {% endif %}
+</section>
+{% endblock %}
