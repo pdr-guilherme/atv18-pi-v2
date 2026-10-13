@@ -45,6 +45,29 @@ main {
     padding: 1rem 0;
 }
 
+.topbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:active {
+    opacity: 1;
+    text-decoration: underline;
+}
+
 .brand {
     color: #fff;
     font-size: 1.25rem;
