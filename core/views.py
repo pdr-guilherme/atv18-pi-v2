@@ -64,7 +64,7 @@ def projeto_delete(request, pk):
 
 
 def tarefa_list(request):
-    tarefas = Tarefa.objects.select_related("projetos")
+    tarefas = Tarefa.objects.select_related("projeto")
     return render(request, "core/tarefa_list.html", {"tarefas": tarefas})
 
 
