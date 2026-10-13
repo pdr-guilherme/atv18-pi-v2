@@ -94,6 +94,7 @@ main {
 }
 
 .field input,
+.field select,
 .field textarea {
     width: 100%;
     padding: 0.5rem 0.75rem;
@@ -103,9 +104,27 @@ main {
 }
 
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
     outline: 2px solid var(--primary);
     border-color: transparent;
+}
+
+.field-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.field-checkbox label {
+    display: inline;
+    margin-bottom: 0;
+}
+
+.field-checkbox input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    order: -1;
 }
 
 .error {
@@ -132,12 +151,29 @@ main {
     cursor: pointer;
 }
 
-.btn-primary { background: var(--primary); }
-.btn-primary:hover { background: var(--primary-dark); }
-.btn-secondary { background: var(--secondary); }
-.btn-secondary:hover { background: #475569; }
-.btn-danger { background: var(--danger); }
-.btn-danger:hover { background: var(--danger-dark); }
+.btn-primary {
+    background: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: var(--secondary);
+}
+
+.btn-secondary:hover {
+    background: #475569;
+}
+
+.btn-danger {
+    background: var(--danger);
+}
+
+.btn-danger:hover {
+    background: var(--danger-dark);
+}
 
 /* Tabela */
 .table {
