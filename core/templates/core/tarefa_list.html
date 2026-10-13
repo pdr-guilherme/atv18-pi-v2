@@ -6,10 +6,7 @@
 <section class="card">
     <div class="page-header">
         <h2>Tarefas cadastradas</h2>
-        <div class="actions">
-            <a href="{% url 'core:projeto_list' %}" class="btn btn-secondary">Ver projetos</a>
-            <a href="{% url 'core:tarefa_create' %}" class="btn btn-primary">+ Nova tarefa</a>
-        </div>
+        <a href="{% url 'core:tarefa_create' %}" class="btn btn-primary">+ Nova tarefa</a>
     </div>
 
     {% if tarefas %}

@@ -218,10 +218,6 @@ main {
     letter-spacing: 0.03em;
 }
 
-.actions {
-    white-space: nowrap;
-}
-
 .empty {
     color: var(--secondary);
     text-align: center;
