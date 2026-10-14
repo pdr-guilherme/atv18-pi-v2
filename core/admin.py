@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Projeto
+from core.models import Projeto, Tarefa
 
 
 class ProjetoAdmin(admin.ModelAdmin):
@@ -8,4 +8,11 @@ class ProjetoAdmin(admin.ModelAdmin):
     search_fields = ("nome", "descricao")
 
 
+class TarefaAdmin(admin.ModelAdmin):
+    list_display = ("id", "titulo", "prioridade", "concluido")
+    search_fields = ("titulo",)
+    list_filter = ("prioridade", "concluido")
+
+
 admin.site.register(Projeto, ProjetoAdmin)
+admin.site.register(Tarefa, TarefaAdmin)

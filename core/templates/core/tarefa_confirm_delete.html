@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Excluir tarefa{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Excluir tarefa</h2>
+    <p>Tem certeza de que deseja excluir <strong>{{ tarefa.titulo }}</strong> (projeto: {{ tarefa.projeto.nome }})? Essa ação não pode ser desfeita.</p>
+    <form method="post" class="confirm-actions">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        <a href="{% url 'core:tarefa_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</section>
+{% endblock %}

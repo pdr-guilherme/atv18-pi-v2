@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Tarefas{% endblock %}
+
+{% block content %}
+<section class="card">
+    <div class="page-header">
+        <h2>Tarefas cadastradas</h2>
+        <div class="actions">
+            <a href="{% url 'core:projeto_list' %}" class="btn btn-secondary">Ver projetos</a>
+            <a href="{% url 'core:tarefa_create' %}" class="btn btn-primary">+ Nova tarefa</a>
+        </div>
+    </div>
+
+    {% if tarefas %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Projeto</th>
+                    <th>Prioridade</th>
+                    <th>Concluída</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarefa in tarefas %}
+                <tr>
+                    <td>{{ tarefa.titulo }}</td>
+                    <td>{{ tarefa.projeto.nome }}</td>
+                    <td>{{ tarefa.get_prioridade_display }}</td>
+                    <td>{% if tarefa.concluido %}Sim{% else %}Não{% endif %}</td>
+                    <td class="actions">
+                        <a href="{% url 'core:tarefa_update' tarefa.pk %}" class="btn btn-secondary">Editar</a>
+                        <a href="{% url 'core:tarefa_delete' tarefa.pk %}" class="btn btn-danger">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="empty">Nenhuma tarefa cadastrada ainda.</p>
+    {% endif %}
+</section>
+{% endblock %}
